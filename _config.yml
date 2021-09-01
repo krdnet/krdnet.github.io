@@ -6,7 +6,7 @@ author:
   url: "https://rknet.github.io"
 
 baseurl: /
-
+root: /
 source: .
 destination: ./_site
 permalink: /:title
