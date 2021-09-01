@@ -39,7 +39,7 @@ We just "**ni**" to go instruction by instruction until we are in "**??**" funct
 ```
 And now we have one instruction of the main function, I will disassembly a range of instructions with "disass **starting**,**ending**"  
 I will do for example "disass 0x00005555555553e9-70,0x00005555555553e9+70"
-```assembly
+```intel
 (gdb) disass 0x00005555555553e9-70,0x00005555555553e9+70
 Dump of assembler code from 0x5555555553a3 to 0x55555555542f:
    0x00005555555553a3:	add    al,ch
