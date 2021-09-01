@@ -2,15 +2,15 @@ ___
 title: Revv Crackme Writeup
 published: true
 ___
-Today we are cracking revv from [crackmes.one](https://crackmes.one).
-I will use *gdb* as debugger for this binary.
+Today we are cracking **revv** from [crackmes.one](https://crackmes.one).
+I will use **gdb** as debugger for this binary.
 # Spotting the main function
-As you can see below theres not actualy a main function, so we actually have to *find* it.
+As you can see below theres not actualy a main function, so we actually have to **find** it.
 ```
 (gdb) disass main
 No symbol table is loaded.  Use the "file" command.
 ```
-The first thing I will do is spotting a *defined function*.  
+The first thing I will do is spotting a **defined function**.  
 We run the code and as we can se there is actually a message before getting the input.
 ```
 (gdb) run
@@ -19,8 +19,8 @@ Enter the Password: testpassword
 Length mismatch! :(
 [Inferior 1 (process 291355) exited normally]
 ```
-We know the main function calls *printf@plt* in the main function.  
-Then we just set a break point in *printf@plt*...
+We know the main function calls **printf@plt** in the main function.  
+Then we just set a break point in **printf@plt**...
 ```
 (gdb) break printf@plt
 Breakpoint 1 at 0x5555555550c0
@@ -32,14 +32,14 @@ Starting program: /home/s0ck37/RE/revv
 
 Breakpoint 1, 0x00005555555550c0 in printf@plt ()
 ```
-We just "*ni*" to go instruction by instruction until we are in "*??*" function,  
+We just "**ni**" to go instruction by instruction until we are in "**??**" function,  
 this means it is not defined.
 ```
 (gdb) ni
 0x00005555555553e9 in ?? ()
 ```
 And now we have one instruction of the main function,  
-I will disassembly a range of instructions with "disass *starting*,*ending*"
+I will disassembly a range of instructions with "disass **starting**,**ending**"
 I will do for example "disass 0x00005555555553e9-70,0x00005555555553e9+70"
 ```
 (gdb) disass 0x00005555555553e9-70,0x00005555555553e9+70
@@ -82,9 +82,9 @@ Dump of assembler code from 0x5555555553a3 to 0x55555555542f:
    0x000055555555542e:	xchg   ax,ax
 End of assembler dump.
 ```
-And there we have, the function starts in *0x00005555555553ba* and ends in *0x000055555555542d*.
+And there we have, the function starts in **0x00005555555553ba** and ends in **0x000055555555542d**.
 # Checking function
-Looking at the assembly code we cant see nothing, but we have an interesting *call* in *0x000055555555540e*  
+Looking at the assembly code we cant see nothing, but we have an interesting **call** in **0x000055555555540e**  
 This function isn't defined, lets see what it does.
 ```
    0x00005555555551c9:	endbr64
@@ -106,8 +106,8 @@ This function isn't defined, lets see what it does.
    0x0000555555555208:	cmp    rax,0x15
    0x000055555555520c:	je     0x55555555521f
 ```
-So first we can see it compares the length of the input with *0x15*, and if isn't equal it just exits.  
-Now that we now the input must be *21 chars long* lets see what it does to check my input.
+So first we can see it compares the length of the input with **0x15**, and if isn't equal it just exits.  
+Now that we now the input must be **21 chars long** lets see what it does to check my input.
 ```
    0x000055555555520e:	lea    rdi,[rip+0xe07]        # 0x55555555601c
    0x0000555555555215:	call   0x555555555090 <puts@plt>
@@ -230,19 +230,19 @@ Now that we now the input must be *21 chars long* lets see what it does to check
    0x00005555555553b8:	leave
    0x00005555555553b9:	ret
 ```
-So looking at that copy paste code I can see that its picking chars in a random order and *comparing* them *one by one*.
+So looking at that copy paste code I can see that its picking chars in a random order and **comparing** them **one by one**.
 Lets build the string!
 ```
    0x0000555555555258:	add    rax,0x2
    0x000055555555525c:	movzx  eax,BYTE PTR [rax]
    0x000055555555525f:	cmp    al,0x54
 ```
-So the program follows this, the add is selecting the char *0x2* (2), and comparing with *0x54* ("T")
+So the program follows this, the add is selecting the char **0x2** (2), and comparing with **0x54** ("T")
 So now we know the second char in the flag is T.
-*Remember*: that the first char is *0* not *1*
+**Remember**: that the first char is **0** not **1**
 ```
 xxTxxxxxxxxxxxxxxxxxx
 ```
-And you just have to build it like that.
-Solution: ACTF{N01ce_R3v3r51^g}
+And you just have to build it like that.     
+Solution: **ACTF{N01ce_R3v3r51^g}**      
 If you liked this writeup dont forget to support KRDnet!
