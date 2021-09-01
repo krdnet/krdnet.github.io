@@ -84,7 +84,7 @@ And there we have, the function starts in **0x00005555555553ba** and ends in **0
 # Checking function
 Looking at the assembly code we cant see nothing, but we have an interesting **call** in **0x000055555555540e**  
 This function isn't defined, lets see what it does.
-```assembly
+```asm
    0x00005555555551c9:	endbr64
    0x00005555555551cd:	push   rbp
    0x00005555555551ce:	mov    rbp,rsp
@@ -106,7 +106,7 @@ This function isn't defined, lets see what it does.
 ```
 So first we can see it compares the length of the input with **0x15**, and if isn't equal it just exits.  
 Now that we now the input must be **21 chars long** lets see what it does to check my input.
-```assembly
+```asm
    0x000055555555520e:	lea    rdi,[rip+0xe07]        # 0x55555555601c
    0x0000555555555215:	call   0x555555555090 <puts@plt>
    0x000055555555521a:	jmp    0x5555555553b8
@@ -230,7 +230,7 @@ Now that we now the input must be **21 chars long** lets see what it does to che
 ```
 So looking at that copy paste code I can see that its picking chars in a random order and **comparing** them **one by one**.  
 Lets build the string!
-```assembly
+```asm
    0x0000555555555258:	add    rax,0x2
    0x000055555555525c:	movzx  eax,BYTE PTR [rax]
    0x000055555555525f:	cmp    al,0x54
