@@ -32,14 +32,12 @@ Starting program: /home/s0ck37/RE/revv
 
 Breakpoint 1, 0x00005555555550c0 in printf@plt ()
 ```
-We just "**ni**" to go instruction by instruction until we are in "**??**" function,  
-this means it is not defined.
+We just "**ni**" to go instruction by instruction until we are in "**??**" function, this means it is not defined.
 ```
 (gdb) ni
 0x00005555555553e9 in ?? ()
 ```
-And now we have one instruction of the main function,  
-I will disassembly a range of instructions with "disass **starting**,**ending**"
+And now we have one instruction of the main function, I will disassembly a range of instructions with "disass **starting**,**ending**"
 I will do for example "disass 0x00005555555553e9-70,0x00005555555553e9+70"
 ```assembly
 (gdb) disass 0x00005555555553e9-70,0x00005555555553e9+70
