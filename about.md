@@ -5,7 +5,7 @@ title: About us
 
 # About us
 
-We are **RKnet**!  
+We are **KRDnet**!  
 We will post articles about everything related with **programming and hacking**. 
 
 ## Authors
