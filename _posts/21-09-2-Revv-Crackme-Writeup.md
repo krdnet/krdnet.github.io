@@ -242,8 +242,7 @@ So now we know the second char in the flag is T.
 xxTxxxxxxxxxxxxxxxxxx
 ```
 And you just have to build it like that.     
-**Solution**: 
-``` ACTF{N01ce_R3v3r51^g} ```      
+**Solution**: *ACTF{N01ce_R3v3r51^g}*     
 If you liked this writeup dont forget to support KRDnet!
 ### Author
 * [s0ck37](https://github.com/Kik449) 
