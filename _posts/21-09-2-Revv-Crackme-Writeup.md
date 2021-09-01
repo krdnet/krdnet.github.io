@@ -242,7 +242,7 @@ So now we know the second char in the flag is T.
 xxTxxxxxxxxxxxxxxxxxx
 ```
 And you just have to build it like that.     
-### Solution
+Solution:
 ``` 
 ACTF{N01ce_R3v3r51^g} 
 ```      
