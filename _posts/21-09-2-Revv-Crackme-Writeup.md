@@ -1,7 +1,7 @@
-___
+---
 title: Revv Crackme Writeup
 published: true
-___
+---
 Today we are cracking **revv** from [crackmes.one](https://crackmes.one).
 I will use **gdb** as debugger for this binary.
 # Spotting the main function
