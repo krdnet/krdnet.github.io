@@ -8,7 +8,7 @@ author:
 baseurl: /
 
 source: .
-destination: ./
+destination: ./_site
 permalink: /:title
 paginate: 3
 paginate_path: /page/:num/
