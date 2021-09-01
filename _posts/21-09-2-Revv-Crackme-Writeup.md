@@ -37,7 +37,7 @@ We just "**ni**" to go instruction by instruction until we are in "**??**" funct
 (gdb) ni
 0x00005555555553e9 in ?? ()
 ```
-And now we have one instruction of the main function, I will disassembly a range of instructions with "disass **starting**,**ending**"
+And now we have one instruction of the main function, I will disassembly a range of instructions with "disass **starting**,**ending**"  
 I will do for example "disass 0x00005555555553e9-70,0x00005555555553e9+70"
 ```assembly
 (gdb) disass 0x00005555555553e9-70,0x00005555555553e9+70
@@ -228,16 +228,16 @@ Now that we now the input must be **21 chars long** lets see what it does to che
    0x00005555555553b8:	leave
    0x00005555555553b9:	ret
 ```
-So looking at that copy paste code I can see that its picking chars in a random order and **comparing** them **one by one**.
+So looking at that copy paste code I can see that its picking chars in a random order and **comparing** them **one by one**.  
 Lets build the string!
 ```assembly
    0x0000555555555258:	add    rax,0x2
    0x000055555555525c:	movzx  eax,BYTE PTR [rax]
    0x000055555555525f:	cmp    al,0x54
 ```
-So the program follows this, the add is selecting the char **0x2** (2), and comparing with **0x54** ("T")
-So now we know the second char in the flag is T.
-**Remember**: that the first char is **0** not **1**
+So the program follows this, the add is selecting the char **0x2** (2), and comparing with **0x54** ("T")  
+So now we know the second char in the flag is T.  
+**Remember**: the first char is **0** not **1**
 ```
 xxTxxxxxxxxxxxxxxxxxx
 ```
