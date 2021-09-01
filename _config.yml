@@ -1,7 +1,7 @@
-title: RKnet
+title: KRDnet
 description: "Prestigious network for programmers and hackers"
 author:
-  name: "RKnet"
+  name: "KRDnet"
 ##  email: ""
   url: "https://rknet.github.io"
 
@@ -28,6 +28,6 @@ plugins:
   - jekyll-sitemap
 
 # Custom variables
-owner : "RKnet"
+owner : "KRDnet"
 year : "2021"
 
