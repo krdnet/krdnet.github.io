@@ -2,7 +2,7 @@
 title: WarGames Crackme Writeup
 published: true
 ---
-Today we are cracking WarGames from [crackmes.one](https://crackmes.one). I will use gdb as debugger for this binary.
+Today we are cracking **WarGames** from [crackmes.one](https://crackmes.one). I will use **gdb** as debugger for this binary.
 # Having a look at main
 So because this program actually has a defined main function, we dont have to spot it.
 ```asm
