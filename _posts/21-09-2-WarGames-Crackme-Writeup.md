@@ -168,8 +168,8 @@ Looking again at the code I can see a **for loop**, with a **compare** in it.
    0x0000000000401e65 <+304>:	cmp    QWORD PTR [rbp-0x20],0x8
    0x0000000000401e6a <+309>:	jbe    0x401dd9 <main+164>
 ```
-I can se an interesting **cmp** at **0x0000000000401e53**.
-Lets set a **breakpoint** and see what they are comparing.
+I can see an interesting **cmp** at **0x0000000000401e53**.
+Lets set a **breakpoint** and see what it is comparing.
 ```
 (gdb) p /c $al
 $151 = 52 '4'
