@@ -82,7 +82,7 @@ End of assembler dump.
 ```
 And there we have, the function starts in **0x00005555555553ba** and ends in **0x000055555555542d**.
 # Checking function
-Looking at the assembly code we cant see nothing, but we have an interesting **call** in **0x00005555555551e9**  
+Looking at the assembly code we cant see nothing, but we have an interesting **call** in **0x000055555555540e**  
 This function isn't defined, lets see what it does.
 ```asm
    0x00005555555551c9:	endbr64
